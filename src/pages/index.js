@@ -1,11 +1,14 @@
 import { Inter } from 'next/font/google'
 import { Canvas } from "@react-three/fiber"
-import {Cloud, OrbitControls, Sky} from "@react-three/drei";
+import {
+    Cloud, Point, Points, Sphere,
+} from "@react-three/drei";
+import {Color} from "three";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  return (
+    return (
     <main className={`flex min-h-screen flex-col justify-between ${inter.className} bg-zinc-200`}>
       <div className={`flex min-h-screen p-7`}>
 
@@ -14,11 +17,12 @@ export default function Home() {
                <div className={`h-full`}>
                    <Canvas>
                        <Cloud
-                          opacity={0.3}
+                           texture={"fog.png"}
+                          opacity={0.1}
                           speed={0.3} // Rotation speed
-                          width={10} // Width of the full cloud
-                          depth={2.5} // Z-dir depth
-                          segments={30} // Number of particles
+                          width={-10} // Width of the full cloud
+                          depth={1} // Z-dir depth
+                          segments={20} // Number of particles
                         />
                    </Canvas>
                </div>
